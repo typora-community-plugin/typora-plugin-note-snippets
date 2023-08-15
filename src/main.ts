@@ -3,16 +3,9 @@ import * as path from 'path'
 import * as _ from 'lodash'
 import { Plugin, EditorSuggest, App } from '@typora-community-plugin/core'
 import { NoteSnippetsSettingTab } from './setting-tab'
+import { DEFAULT_SETTINGS, NoteSnippetsSettings } from './settings'
 import { pasreSnippets } from './parse-snippets'
 
-
-interface NoteSnippetsSettings {
-  snippetsDir: string
-}
-
-const DEFAULT_SETTINGS: NoteSnippetsSettings = {
-  snippetsDir: '.typora/snippets'
-}
 
 export default class NoteSnippetsPlugin extends Plugin {
 

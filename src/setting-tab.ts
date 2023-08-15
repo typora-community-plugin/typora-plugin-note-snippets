@@ -1,5 +1,6 @@
 import { I18n, Notice, SettingTab } from "@typora-community-plugin/core"
 import type NoteSnippetsPlugin from "./main"
+import { DEFAULT_SETTINGS } from "./settings"
 
 
 export class NoteSnippetsSettingTab extends SettingTab {
@@ -33,6 +34,7 @@ export class NoteSnippetsSettingTab extends SettingTab {
   }
 
   show() {
+    const { plugin } = this
     const { t } = this.i18n
 
     this.containerEl.innerHTML = ''
@@ -41,10 +43,10 @@ export class NoteSnippetsSettingTab extends SettingTab {
       setting.addName(t.snippetFolder)
       setting.addDescription(t.snippetFolderDesc)
       setting.addText(input => {
-        const { settings } = this.plugin
-        input.placeholder = settings.snippetsDir
+        input.placeholder = DEFAULT_SETTINGS.snippetsDir
         input.oninput = () => {
-          settings.snippetsDir = input.value ?? settings.snippetsDir
+          plugin.settings.snippetsDir = input.value ?? DEFAULT_SETTINGS.snippetsDir
+          plugin.saveSettings()
         }
       })
       setting.addButton(button => {
