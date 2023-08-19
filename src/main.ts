@@ -42,6 +42,7 @@ export default class NoteSnippetsPlugin extends Plugin {
 
 class NoteSnippetSuggest extends EditorSuggest<string> {
 
+  triggerText = '/'
   suggestionKeys: string[] = []
   snippets: Record<string, string> = {}
   module: Record<string, any> = {}
