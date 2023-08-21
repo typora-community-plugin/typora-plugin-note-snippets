@@ -30,9 +30,6 @@ export class NoteSnippetsSettingTab extends SettingTab {
     super()
   }
 
-  onload() {
-  }
-
   show() {
     const { plugin } = this
     const { t } = this.i18n
@@ -43,15 +40,16 @@ export class NoteSnippetsSettingTab extends SettingTab {
       setting.addName(t.snippetFolder)
       setting.addDescription(t.snippetFolderDesc)
       setting.addText(input => {
+        input.value = plugin.settings.get('snippetsDir')
         input.placeholder = DEFAULT_SETTINGS.snippetsDir
         input.oninput = () => {
-          plugin.settings.snippetsDir = input.value ?? DEFAULT_SETTINGS.snippetsDir
-          plugin.saveSettings()
+          plugin.settings.set('snippetsDir', input.value ?? DEFAULT_SETTINGS.snippetsDir)
         }
       })
       setting.addButton(button => {
         button.classList.add('primary')
-        button.innerText = t.reload
+        button.innerHTML = '<span class="fa fa-refresh"></span>'
+        button.title = t.reload
         button.onclick = () =>
           this.plugin.suggest._loadCodeSnippets()
             .then(() => new Notice(t.reloadedMsg))

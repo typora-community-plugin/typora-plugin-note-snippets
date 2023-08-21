@@ -1,32 +1,24 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/extract-zip': 1.6.2
-  '@types/glob': 7.2.0
   '@types/jquery': 3.3.1
   '@types/lodash': ~4.14.197
   '@types/node': 16.18.0
-  '@types/typora': npm:@typora-community-plugin/typora-types@^1.0.2
-  '@types/yauzl': 2.10.0
-  '@typora-community-plugin/core': 2.0.0-beta.14
+  '@types/typora': npm:@typora-community-plugin/typora-types@^1.0.3
+  '@typora-community-plugin/core': 2.0.0-beta.21
   archiver: ^5.3.2
   esbuild: ^0.18.20
   esbuild-plugin-typora: npm:@typora-community-plugin/esbuild-plugin-typora@^1.0.5
-  iconv-lite: 0.6.3
 
 devDependencies:
-  '@types/extract-zip': 1.6.2
-  '@types/glob': 7.2.0
   '@types/jquery': 3.3.1
   '@types/lodash': 4.14.197
   '@types/node': 16.18.0
-  '@types/typora': /@typora-community-plugin/typora-types/1.0.2
-  '@types/yauzl': 2.10.0
-  '@typora-community-plugin/core': 2.0.0-beta.14
+  '@types/typora': /@typora-community-plugin/typora-types/1.0.3
+  '@typora-community-plugin/core': 2.0.0-beta.21
   archiver: 5.3.2
   esbuild: 0.18.20
   esbuild-plugin-typora: /@typora-community-plugin/esbuild-plugin-typora/1.0.5
-  iconv-lite: 0.6.3
 
 packages:
 
@@ -234,17 +226,6 @@ packages:
       typescript: 5.1.6
     dev: true
 
-  /@types/extract-zip/1.6.2:
-    resolution: {integrity: sha512-ZPnENVnXrziwDKO8eaB/+I9SIA6CCFiJxEo4KD2PJ2M6ztWZCQu7u+AA6XNpGIGjqJshak8yeUPnb10V9oF4jg==}
-    dev: true
-
-  /@types/glob/7.2.0:
-    resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
-    dependencies:
-      '@types/minimatch': 5.1.2
-      '@types/node': 16.18.0
-    dev: true
-
   /@types/jquery/3.3.1:
     resolution: {integrity: sha512-N3h+rzN518yl2xKrW0o6KKdNmWZ+OwG6SoM5TBEQFF0tTv5wXPEsoOuYQ2Kt3/89XbcSZUJLdjiT/2c3BR/ApQ==}
     dev: true
@@ -253,22 +234,12 @@ packages:
     resolution: {integrity: sha512-BMVOiWs0uNxHVlHBgzTIqJYmj+PgCo4euloGF+5m4okL3rEYzM2EEv78mw8zWSMM57dM7kVIgJ2QDvwHSoCI5g==}
     dev: true
 
-  /@types/minimatch/5.1.2:
-    resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
-    dev: true
-
   /@types/node/16.18.0:
     resolution: {integrity: sha512-LqYqYzYvnbCaQfLAwRt0zboqnsViwhZm+vjaMSqcfN36vulAg7Pt0T83q4WZO2YOBw3XdyHi8cQ88H22zmULOA==}
     dev: true
 
-  /@types/yauzl/2.10.0:
-    resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
-    dependencies:
-      '@types/node': 16.18.0
-    dev: true
-
-  /@typora-community-plugin/core/2.0.0-beta.14:
-    resolution: {integrity: sha512-c+89JcFJwMHUw3dK+So6BBvVzWjLmmlh+7fvw6UueH7u2K+jVtQTy/TLToDkj2NpWHb1ADMDIVpWaKuq1lz7vA==}
+  /@typora-community-plugin/core/2.0.0-beta.21:
+    resolution: {integrity: sha512-Yc9RlkIti590RDz6royKms4yTVRRBTGP/2C1i7WxRNq94bScBc82efAeWQcK6UJzFuWbh9faQmtkmz/leI1L3Q==}
     dependencies:
       '@plylrnsdy/decorate.js': 1.0.1
     dev: true
@@ -277,8 +248,8 @@ packages:
     resolution: {integrity: sha512-rBzFMuZk39FwoNEm1jYnDMt3oT6iyZBLwMlTP7hd0LA44CBz1ZEJtC6xuXhOBCcvuYPDbv9jtywbfq4a7BUBSg==}
     dev: true
 
-  /@typora-community-plugin/typora-types/1.0.2:
-    resolution: {integrity: sha512-V0DCfdjvE7PKdstE0KGXKOM94/olF+zBIxAl8WO/jwckJgDvcUs9mBCs4NDRKfe8t7DOlAAh+GYkFzRphYM9PQ==}
+  /@typora-community-plugin/typora-types/1.0.3:
+    resolution: {integrity: sha512-ZPiGIUToqawZDLduriLBVg2jOFExW3a48URMMjR1v/QgkyUFh9NEUsjat2MXJ1xpDr2hF+UpDM99ZEjMTcxr/g==}
     dev: true
 
   /archiver-utils/2.1.0:
@@ -445,13 +416,6 @@ packages:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: true
 
-  /iconv-lite/0.6.3:
-    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      safer-buffer: 2.1.2
-    dev: true
-
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: true
@@ -564,10 +528,6 @@ packages:
 
   /safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
-    dev: true
-
-  /safer-buffer/2.1.2:
-    resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
   /string_decoder/1.1.1:

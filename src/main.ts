@@ -1,24 +1,27 @@
 import * as fs from 'fs/promises'
 import * as path from 'path'
 import * as _ from 'lodash'
-import { Plugin, EditorSuggest, App } from '@typora-community-plugin/core'
+import { Plugin, EditorSuggest, App, PluginSettings } from '@typora-community-plugin/core'
 import { NoteSnippetsSettingTab } from './setting-tab'
 import { DEFAULT_SETTINGS, NoteSnippetsSettings } from './settings'
 import { pasreSnippets } from './parse-snippets'
 
 
-export default class NoteSnippetsPlugin extends Plugin {
-
-  settings: NoteSnippetsSettings
+export default class NoteSnippetsPlugin extends Plugin<NoteSnippetsSettings> {
 
   suggest = new NoteSnippetSuggest(this.app, this)
 
   onload() {
-    this.register(
-      this.app.vault.on('mounted', async () => {
-        await this.loadSettings()
-        this.suggest._loadCodeSnippets()
+    this.registerSettings(
+      new PluginSettings(this.app, this.manifest, {
+        version: 1,
       }))
+
+    this.settings.setDefault(DEFAULT_SETTINGS)
+
+    this.register(
+      this.app.vault.on('mounted', () =>
+        this.suggest._loadCodeSnippets()))
 
     this.register(
       this.app.workspace.activeEditor.suggestion.register(
@@ -26,17 +29,6 @@ export default class NoteSnippetsPlugin extends Plugin {
       ))
 
     this.registerSettingTab(new NoteSnippetsSettingTab(this))
-  }
-
-  onunload() {
-  }
-
-  async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData())
-  }
-
-  async saveSettings() {
-    await this.saveData(this.settings)
   }
 }
 
@@ -53,7 +45,7 @@ class NoteSnippetSuggest extends EditorSuggest<string> {
 
   _loadCodeSnippets() {
     const vaultPath = this.app.vault.path
-    const snippetsPath = path.join(vaultPath, this.plugin.settings.snippetsDir)
+    const snippetsPath = path.join(vaultPath, this.plugin.settings.get('snippetsDir'))
 
     return fs.access(snippetsPath)
       .then(() => fs.readdir(snippetsPath))
