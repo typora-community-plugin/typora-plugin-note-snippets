@@ -19,6 +19,8 @@ export default class NoteSnippetsPlugin extends Plugin<NoteSnippetsSettings> {
 
     this.settings.setDefault(DEFAULT_SETTINGS)
 
+    this.suggest._loadCodeSnippets()
+
     this.register(
       this.app.vault.on('mounted', () =>
         this.suggest._loadCodeSnippets()))
