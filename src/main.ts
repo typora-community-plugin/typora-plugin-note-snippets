@@ -80,7 +80,16 @@ class NoteSnippetSuggest extends EditorSuggest<string> {
   }
 
   getSuggestions(query: string) {
-    return this.suggestionKeys.filter(n => n.includes(query))
+    if (!query) return this.suggestionKeys
+
+    query = query.toLowerCase()
+    const cache: Record<string, number> = {}
+    return this.suggestionKeys
+      .filter(n => {
+        cache[n] = n.toLowerCase().indexOf(query)
+        return cache[n] !== -1
+      })
+      .sort((a, b) => cache[a] - cache[b] || a.length - b.length)
   }
 
   beforeApply(suggest: string) {
