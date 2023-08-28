@@ -5,7 +5,7 @@ specifiers:
   '@types/lodash': ~4.14.197
   '@types/node': 16.18.0
   '@types/typora': npm:@typora-community-plugin/typora-types@^1.0.3
-  '@typora-community-plugin/core': 2.0.0-beta.21
+  '@typora-community-plugin/core': 2.0.0-beta.25
   archiver: ^5.3.2
   esbuild: ^0.18.20
   esbuild-plugin-typora: npm:@typora-community-plugin/esbuild-plugin-typora@^1.0.5
@@ -15,7 +15,7 @@ devDependencies:
   '@types/lodash': 4.14.197
   '@types/node': 16.18.0
   '@types/typora': /@typora-community-plugin/typora-types/1.0.3
-  '@typora-community-plugin/core': 2.0.0-beta.21
+  '@typora-community-plugin/core': 2.0.0-beta.25
   archiver: 5.3.2
   esbuild: 0.18.20
   esbuild-plugin-typora: /@typora-community-plugin/esbuild-plugin-typora/1.0.5
@@ -223,7 +223,7 @@ packages:
   /@plylrnsdy/decorate.js/1.0.1:
     resolution: {integrity: sha512-bXwea+WJ3GOJDnXnzmhK1fUJnSOBiN/mjaPNryY+Shy0hPS1qr3cngsWOGEOgCddBFzef5cELObC6HDlIQ8Uxg==}
     dependencies:
-      typescript: 5.1.6
+      typescript: 5.2.2
     dev: true
 
   /@types/jquery/3.3.1:
@@ -238,8 +238,8 @@ packages:
     resolution: {integrity: sha512-LqYqYzYvnbCaQfLAwRt0zboqnsViwhZm+vjaMSqcfN36vulAg7Pt0T83q4WZO2YOBw3XdyHi8cQ88H22zmULOA==}
     dev: true
 
-  /@typora-community-plugin/core/2.0.0-beta.21:
-    resolution: {integrity: sha512-Yc9RlkIti590RDz6royKms4yTVRRBTGP/2C1i7WxRNq94bScBc82efAeWQcK6UJzFuWbh9faQmtkmz/leI1L3Q==}
+  /@typora-community-plugin/core/2.0.0-beta.25:
+    resolution: {integrity: sha512-WFVAmTpWhdHXm81LomEiMPIKJGcM+Dv/IBcItfyXN9yxbDkFLwLC9YXsOzidzkrxsl8TW5vMT5nmShrg7Xc1aA==}
     dependencies:
       '@plylrnsdy/decorate.js': 1.0.1
     dev: true
@@ -553,8 +553,8 @@ packages:
       readable-stream: 3.6.2
     dev: true
 
-  /typescript/5.1.6:
-    resolution: {integrity: sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==}
+  /typescript/5.2.2:
+    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true

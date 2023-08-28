@@ -1,7 +1,7 @@
 import * as fs from 'fs/promises'
 import * as path from 'path'
 import * as _ from 'lodash'
-import { Plugin, EditorSuggest, App, PluginSettings } from '@typora-community-plugin/core'
+import { Plugin, TextSuggest, App, PluginSettings } from '@typora-community-plugin/core'
 import { NoteSnippetsSettingTab } from './setting-tab'
 import { DEFAULT_SETTINGS, NoteSnippetsSettings } from './settings'
 import { pasreSnippets } from './parse-snippets'
@@ -34,10 +34,10 @@ export default class NoteSnippetsPlugin extends Plugin<NoteSnippetsSettings> {
   }
 }
 
-class NoteSnippetSuggest extends EditorSuggest<string> {
+class NoteSnippetSuggest extends TextSuggest {
 
   triggerText = '/'
-  suggestionKeys: string[] = []
+  suggestions: string[] = []
   snippets: Record<string, string> = {}
   module: Record<string, any> = {}
 
@@ -66,7 +66,7 @@ class NoteSnippetSuggest extends EditorSuggest<string> {
 
         this.snippets = texts.reduce((o, text) => Object.assign(o, pasreSnippets(text)), {})
 
-        this.suggestionKeys = Object.keys(this.snippets)
+        this.suggestions = Object.keys(this.snippets)
       })
       .catch(() => { })
   }
@@ -77,19 +77,6 @@ class NoteSnippetSuggest extends EditorSuggest<string> {
       isMatched: !!matched[0],
       query: matched[1],
     }
-  }
-
-  getSuggestions(query: string) {
-    if (!query) return this.suggestionKeys
-
-    query = query.toLowerCase()
-    const cache: Record<string, number> = {}
-    return this.suggestionKeys
-      .filter(n => {
-        cache[n] = n.toLowerCase().indexOf(query)
-        return cache[n] !== -1
-      })
-      .sort((a, b) => cache[a] - cache[b] || a.length - b.length)
   }
 
   beforeApply(suggest: string) {

@@ -4,7 +4,7 @@
   "description": "Use slash command to autocomplete note snippets.",
   "author": "plylrnsdy",
   "authorUrl": "https://github.com/plylrnsdy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "minAppVersion": "1.5.0",
-  "minCoreVersion": "2.0.0-beta.21"
+  "minCoreVersion": "2.0.0-beta.25"
 }
