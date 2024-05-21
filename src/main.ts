@@ -1,7 +1,4 @@
-import * as fs from 'fs/promises'
-import * as path from 'path'
-import * as _ from 'lodash'
-import { Plugin, TextSuggest, App, PluginSettings } from '@typora-community-plugin/core'
+import { fs, path, Plugin, TextSuggest, App, PluginSettings } from '@typora-community-plugin/core'
 import { NoteSnippetsSettingTab } from './setting-tab'
 import { DEFAULT_SETTINGS, NoteSnippetsSettings } from './settings'
 import { pasreSnippets } from './parse-snippets'
@@ -50,7 +47,7 @@ class NoteSnippetSuggest extends TextSuggest {
     const snippetsPath = path.join(vaultPath, this.plugin.settings.get('snippetsDir'))
 
     return fs.access(snippetsPath)
-      .then(() => fs.readdir(snippetsPath))
+      .then(() => fs.list(snippetsPath))
       .then(async files => [
         await Promise.all(
           files.filter(file => file.endsWith('.js'))
@@ -58,7 +55,7 @@ class NoteSnippetSuggest extends TextSuggest {
         ),
         await Promise.all(
           files.filter(file => file.endsWith('.md'))
-            .map(file => fs.readFile(path.join(snippetsPath, file), 'utf8'))
+            .map(file => fs.readText(path.join(snippetsPath, file)))
         ),
       ])
       .then(([modules, texts]) => {

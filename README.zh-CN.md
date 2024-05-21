@@ -12,7 +12,7 @@
 
 ## 使用
 
-(可选) 添加 JavaScript ESM 文件到 `.typora/snippets` 文件夹
+(可选) 添加 JavaScript ESM 文件到 `{笔记目录}/.typora/snippets` 文件夹
 
 ```js
 // function.js (或其他文件名)

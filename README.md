@@ -12,7 +12,7 @@ Use slash command to autocomplete note snippets.
 
 ## Usage
 
-(Optional) Add JavaScript ESM file to `.typora/snippets` folder
+(Optional) Add JavaScript ESM file to `{NoteFolder}/.typora/snippets` folder
 
 ```js
 // function.js (or other name)
