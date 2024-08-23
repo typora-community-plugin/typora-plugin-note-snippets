@@ -3,5 +3,5 @@ export interface NoteSnippetsSettings {
 }
 
 export const DEFAULT_SETTINGS: NoteSnippetsSettings = {
-  snippetsDir: '.typora/snippets'
+  snippetsDir: 'snippets'
 }
