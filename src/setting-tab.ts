@@ -1,5 +1,5 @@
 import { JSBridge } from "typora"
-import { App, I18n, Notice, SettingTab } from "@typora-community-plugin/core"
+import { App, fs, I18n, Notice, SettingTab } from "@typora-community-plugin/core"
 import type NoteSnippetsPlugin from "./main"
 import { getDefaultSettings } from "./settings"
 
@@ -66,7 +66,10 @@ export class NoteSnippetsSettingTab extends SettingTab {
         button.innerHTML = '<span class="fa fa-folder-o"></span>'
         button.title = t.open
         button.onclick = () => {
-          JSBridge.invoke("shell.openItem", this.plugin.suggest.snippetsDir)
+          const { snippetsDir } = this.plugin.suggest
+          fs.access(snippetsDir)
+            .catch(() => fs.mkdir(snippetsDir))
+            .then(() => JSBridge.invoke("shell.openItem", snippetsDir))
         }
       })
     })
