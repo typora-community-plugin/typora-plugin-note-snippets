@@ -1,7 +1,7 @@
 import { JSBridge } from "typora"
-import { I18n, Notice, SettingTab } from "@typora-community-plugin/core"
+import { App, I18n, Notice, SettingTab } from "@typora-community-plugin/core"
 import type NoteSnippetsPlugin from "./main"
-import { DEFAULT_SETTINGS } from "./settings"
+import { getDefaultSettings } from "./settings"
 
 
 export class NoteSnippetsSettingTab extends SettingTab {
@@ -29,7 +29,10 @@ export class NoteSnippetsSettingTab extends SettingTab {
     }
   })
 
-  constructor(private plugin: NoteSnippetsPlugin) {
+  constructor(
+    private app: App,
+    private plugin: NoteSnippetsPlugin
+  ) {
     super()
   }
 
@@ -43,6 +46,7 @@ export class NoteSnippetsSettingTab extends SettingTab {
       setting.addName(t.snippetFolder)
       setting.addDescription(t.snippetFolderDesc)
       setting.addText(input => {
+        const DEFAULT_SETTINGS = getDefaultSettings(this.app.config.isUsingGlobalConfig)
         input.value = plugin.settings.get('snippetsDir')
         input.placeholder = DEFAULT_SETTINGS.snippetsDir
         input.oninput = () => {

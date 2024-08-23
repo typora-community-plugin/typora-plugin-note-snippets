@@ -1,6 +1,6 @@
 import { fs, path, Plugin, TextSuggest, App, PluginSettings } from '@typora-community-plugin/core'
 import { NoteSnippetsSettingTab } from './setting-tab'
-import { DEFAULT_SETTINGS, NoteSnippetsSettings } from './settings'
+import { getDefaultSettings, NoteSnippetsSettings } from './settings'
 import { pasreSnippets } from './parse-snippets'
 
 
@@ -14,7 +14,9 @@ export default class NoteSnippetsPlugin extends Plugin<NoteSnippetsSettings> {
         version: 1,
       }))
 
-    this.settings.setDefault(DEFAULT_SETTINGS)
+    this.settings.setDefault(
+      getDefaultSettings(this.app.config.isUsingGlobalConfig)
+    )
 
     this.suggest._loadCodeSnippets()
 
@@ -27,7 +29,7 @@ export default class NoteSnippetsPlugin extends Plugin<NoteSnippetsSettings> {
         this.suggest
       ))
 
-    this.registerSettingTab(new NoteSnippetsSettingTab(this))
+    this.registerSettingTab(new NoteSnippetsSettingTab(this.app, this))
   }
 }
 
