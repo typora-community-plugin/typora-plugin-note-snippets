@@ -1,3 +1,4 @@
+import { JSBridge } from "typora"
 import { I18n, Notice, SettingTab } from "@typora-community-plugin/core"
 import type NoteSnippetsPlugin from "./main"
 import { DEFAULT_SETTINGS } from "./settings"
@@ -14,12 +15,14 @@ export class NoteSnippetsSettingTab extends SettingTab {
       'en': {
         snippetFolder: 'Note snippets folder',
         snippetFolderDesc: 'The folder includes any markdown file. A paragraph and a codeblock as one pair (sugget key and snippet), a markdown file contains one or more pair.',
+        open: 'Open folder',
         reload: 'Reload',
         reloadedMsg: 'Note snippets load successfully.',
       },
       'zh-cn': {
         snippetFolder: '笔记片段文件夹',
         snippetFolderDesc: '该文件夹包含任意数量 Markdown 文件。一行文本和一个代码块作为一个片段对（提示词和笔记片段），一个 Markdown 文件包含一个或多个片段对。',
+        open: '打开文件夹',
         reload: '重新加载',
         reloadedMsg: '笔记片段加载成功。',
       },
@@ -53,6 +56,14 @@ export class NoteSnippetsSettingTab extends SettingTab {
         button.onclick = () =>
           this.plugin.suggest._loadCodeSnippets()
             .then(() => new Notice(t.reloadedMsg))
+      })
+      setting.addButton(button => {
+        button.classList.add('primary')
+        button.innerHTML = '<span class="fa fa-folder-o"></span>'
+        button.title = t.open
+        button.onclick = () => {
+          JSBridge.invoke("shell.openItem", this.plugin.suggest.snippetsDir)
+        }
       })
     })
 

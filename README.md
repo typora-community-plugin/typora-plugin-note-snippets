@@ -8,11 +8,13 @@ Use slash command to autocomplete note snippets.
 
 ## Preview
 
-![](https://fastly.jsdelivr.net/gh/typora-community-plugin/typora-plugin-note-snippets@main/docs/assets/base.jpg)
+![](/docs/assets/base.jpg)
 
 ## Usage
 
-(Optional) Add JavaScript ESM file to `{NoteFolder}/.typora/snippets` folder
+1. Open "Plugin Settings" Modal → Plugin "Note Snippets" Settings → "Note snippets folder" → click "Open folder" button to open **the snippets folder**.
+
+2. (Optional) Add JavaScript ESM file to **the snippets folder**
 
 ```js
 // function.js (or other name)
@@ -21,7 +23,7 @@ export function author() {
 }
 ```
 
-Add note snippets `snippets.md`(or other name) to `.typora/snippets` folder
+3. Add note snippets `snippets.md`(or other name) to **the snippets folder**
 
 ````markdown
 key

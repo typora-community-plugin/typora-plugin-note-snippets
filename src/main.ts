@@ -42,20 +42,29 @@ class NoteSnippetSuggest extends TextSuggest {
     super()
   }
 
-  _loadCodeSnippets() {
-    const vaultPath = this.app.vault.path
-    const snippetsPath = path.join(vaultPath, this.plugin.settings.get('snippetsDir'))
+  get snippetsRoot() {
+    return this.app.config.isUsingGlobalConfig
+      ? this.app.config.configDir
+      : this.app.vault.path
+  }
 
-    return fs.access(snippetsPath)
-      .then(() => fs.list(snippetsPath))
+  get snippetsDir() {
+    return path.join(this.snippetsRoot, this.plugin.settings.get('snippetsDir'))
+  }
+
+  _loadCodeSnippets() {
+    const { snippetsDir } = this
+
+    return fs.access(snippetsDir)
+      .then(() => fs.list(snippetsDir))
       .then(async files => [
         await Promise.all(
           files.filter(file => file.endsWith('.js'))
-            .map(file => import(path.join(snippetsPath, file)))
+            .map(file => import(path.join(snippetsDir, file)))
         ),
         await Promise.all(
           files.filter(file => file.endsWith('.md'))
-            .map(file => fs.readText(path.join(snippetsPath, file)))
+            .map(file => fs.readText(path.join(snippetsDir, file)))
         ),
       ])
       .then(([modules, texts]) => {

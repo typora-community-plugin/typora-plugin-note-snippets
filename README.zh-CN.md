@@ -8,11 +8,13 @@
 
 ## 预览
 
-![](https://fastly.jsdelivr.net/gh/typora-community-plugin/typora-plugin-note-snippets@main/docs/assets/base.jpg)
+![](/docs/assets/base.jpg)
 
 ## 使用
 
-(可选) 添加 JavaScript ESM 文件到 `{笔记目录}/.typora/snippets` 文件夹
+1. 打开“插件设置”对话框 → “Note Snippets” 插件设置 → “笔记片段文件夹” → 点击“打开文件夹”按钮打开**笔记片段文件夹**。
+
+2. (可选) 添加 JavaScript ESM 文件到 **笔记片段文件夹**
 
 ```js
 // function.js (或其他文件名)
@@ -21,7 +23,7 @@ export function author() {
 }
 ```
 
-添加笔记片段 `snippets.md` (或其他文件名) 到 `.typora/snippets` 文件夹
+3. 添加笔记片段 `snippets.md` (或其他文件名) 到 **笔记片段文件夹**
 
 ````markdown
 key
