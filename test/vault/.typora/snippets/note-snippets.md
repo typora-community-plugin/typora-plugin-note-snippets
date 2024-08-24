@@ -1,11 +1,32 @@
+anchor.segment
+
+```markdown
+^{{ createSegmentUid() }}
+```
+
 callout.note
 
 ```markdown
 > [!Note] 
 ```
 
-anchor.segment
+datetime
 
 ```markdown
-^{{ createSegmentUid() }}
+{{ datetime() }}
+
+```
+
+date
+
+```markdown
+{{ date() }}
+
+```
+
+time
+
+```markdown
+{{ time() }}
+
 ```
