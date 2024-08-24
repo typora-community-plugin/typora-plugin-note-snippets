@@ -76,7 +76,11 @@ class NoteSnippetSuggest extends TextSuggest {
 
         this.suggestions = Object.keys(this.snippets)
       })
-      .catch(() => { })
+      .catch(() => {
+        this.module = {}
+        this.snippets = {}
+        this.suggestions = []
+      })
   }
 
   findQuery(text: string) {

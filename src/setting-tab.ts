@@ -14,17 +14,19 @@ export class NoteSnippetsSettingTab extends SettingTab {
     resources: {
       'en': {
         snippetFolder: 'Note snippets folder',
-        snippetFolderDesc: 'The folder includes any markdown file. A paragraph and a codeblock as one pair (sugget key and snippet), a markdown file contains one or more pair.',
+        snippetFolderDesc: '- The folder includes any markdown file. A paragraph and a codeblock as one pair (sugget key and snippet), a markdown file contains one or more pair.\n - Reload button: reload snippets from folder, after changed path or files in it.\n - Open folder button: open snippets folder to add snippet files.',
         open: 'Open folder',
         reload: 'Reload',
-        reloadedMsg: 'Note snippets load successfully.',
+        reloadedSuccessMsg: 'Note snippets load successfully.',
+        reloadedEmptyMsg: 'No note snippets be found.',
       },
       'zh-cn': {
         snippetFolder: '笔记片段文件夹',
-        snippetFolderDesc: '该文件夹包含任意数量 Markdown 文件。一行文本和一个代码块作为一个片段对（提示词和笔记片段），一个 Markdown 文件包含一个或多个片段对。',
+        snippetFolderDesc: '- 该文件夹包含任意数量 Markdown 文件，一个 Markdown 文件包含一个或多个片段对，一行文本和一个多行代码块作为一个片段对（即提示词和笔记片段）。\n - 重新加载按钮：手动从文件夹中重新加载笔记片段，适用于修改了文件夹路径或编辑了笔记片段文件。\n - 打开文件夹按钮：打开笔记片段文件夹以添加笔记片段文件',
         open: '打开文件夹',
         reload: '重新加载',
-        reloadedMsg: '笔记片段加载成功。',
+        reloadedSuccessMsg: '笔记片段加载成功。',
+        reloadedEmptyMsg: '没有找到任何笔记片段。',
       },
     }
   })
@@ -59,7 +61,12 @@ export class NoteSnippetsSettingTab extends SettingTab {
         button.title = t.reload
         button.onclick = () =>
           this.plugin.suggest._loadCodeSnippets()
-            .then(() => new Notice(t.reloadedMsg))
+            .then(() => {
+              if (plugin.suggest.suggestions.length)
+                new Notice(t.reloadedSuccessMsg)
+              else
+                new Notice(t.reloadedEmptyMsg)
+            })
       })
       setting.addButton(button => {
         button.classList.add('primary')
