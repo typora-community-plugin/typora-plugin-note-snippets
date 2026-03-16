@@ -1,4 +1,4 @@
-const reWhitespace = /\s/g
+const reWhitespace = /\s/
 
 export function parseSnippets(text: string) {
 
