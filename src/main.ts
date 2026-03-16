@@ -1,7 +1,7 @@
 import { fs, path, Plugin, TextSuggest, App, PluginSettings } from '@typora-community-plugin/core'
 import { NoteSnippetsSettingTab } from './setting-tab'
 import { getDefaultSettings, NoteSnippetsSettings } from './settings'
-import { pasreSnippets } from './parse-snippets'
+import { parseSnippets } from './parse-snippets'
 
 
 export default class NoteSnippetsPlugin extends Plugin<NoteSnippetsSettings> {
@@ -72,7 +72,7 @@ class NoteSnippetSuggest extends TextSuggest {
       .then(([modules, texts]) => {
         this.module = modules.reduce((o, module) => Object.assign(o, module), {})
 
-        this.snippets = texts.reduce((o, text) => Object.assign(o, pasreSnippets(text)), {})
+        this.snippets = texts.reduce((o, text) => Object.assign(o, parseSnippets(text)), {})
 
         this.suggestions = Object.keys(this.snippets)
       })

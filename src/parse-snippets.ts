@@ -1,6 +1,6 @@
 const reWhitespace = /\s/g
 
-export function pasreSnippets(text: string) {
+export function parseSnippets(text: string) {
 
   text = text.trim()
     .replace(/^(-{3,}).+?\1/m, '')
@@ -24,7 +24,7 @@ export function pasreSnippets(text: string) {
     }
     else {
       const end = text.indexOf('\n', pos)
-      name = text.slice(pos, end)
+      name = text.slice(pos, end).trimEnd()
       pos = end + 1
     }
   }

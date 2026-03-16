@@ -10,6 +10,13 @@ callout.note
 > [!Note] 
 ```
 
+callout.note2
+
+```markdown
+> [!Note] 
+> 
+```
+
 datetime
 
 ```markdown
