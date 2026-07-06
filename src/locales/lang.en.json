@@ -1,0 +1,8 @@
+{
+  "snippetFolder": "Note snippets folder",
+  "snippetFolderDesc": "- The folder includes any markdown file. A paragraph and a codeblock as one pair (sugget key and snippet), a markdown file contains one or more pair.\n - Reload button: reload snippets from folder, after changed path or files in it.\n - Open folder button: open snippets folder to add snippet files.",
+  "open": "Open folder",
+  "reload": "Reload",
+  "reloadedSuccessMsg": "Note snippets load successfully.",
+  "reloadedEmptyMsg": "No note snippets be found."
+}
