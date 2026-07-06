@@ -1,0 +1,8 @@
+{
+  "snippetFolder": "Ordner mit Notiz-Snippets",
+  "snippetFolderDesc": "- Der Ordner enthält beliebige Markdown-Dateien. Ein Absatz und ein Codeblock bilden ein Paar (Vorschlschlüssel und Snippet), eine Markdown-Datei enthält ein oder mehrere Paare.\n - Neu laden: lädt Snippets aus dem Ordner neu, nach Änderungen am Pfad oder an den Dateien darin.\n - Ordner öffnen: öffnet den Snippet-Ordner zum Hinzufügen von Snippet-Dateien.",
+  "open": "Ordner öffnen",
+  "reload": "Neu laden",
+  "reloadedSuccessMsg": "Notiz-Snippets erfolgreich geladen.",
+  "reloadedEmptyMsg": "Keine Notiz-Snippets gefunden."
+}
