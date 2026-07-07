@@ -5,7 +5,7 @@ import * as Locale from './locales/lang.en.json'
 import { getDefaultSettings } from "./settings"
 
 
-export class NoteSnippetsSettingTab extends SettingTab<Locale> {
+export class NoteSnippetsSettingTab extends SettingTab {
 
   get name() {
     return 'Note Snippets'
@@ -19,7 +19,7 @@ export class NoteSnippetsSettingTab extends SettingTab<Locale> {
   ) {
     super()
     this.i18n = new I18n<typeof Locale>({
-      localePath: path.join(this.app.manifest.dir!, 'locales')
+      localePath: path.join(plugin.manifest.dir!, 'locales')
     })
   }
 
